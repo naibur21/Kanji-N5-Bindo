@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanji Bangla — 日本語漢字 শেখা</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span>漢</span><div><b>Kanji Bangla</b><small>জাপানি কানজি শিখি সহজে 🇯🇵</small></div></div>
+  <button id="themeBtn" class="icon-btn" aria-label="Dark mode">🌙</button>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">JLPT • বাংলা ভাষায়</p>
+    <h1>কানজি শেখা হোক<br><span>সহজ ও মজার!</span></h1>
+    <p>অর্থ, উচ্চারণ, উদাহরণ আর কুইজ—সব এক জায়গায়।</p>
+    <button class="primary" onclick="showPage('learn')">শেখা শুরু করুন →</button>
+  </div>
+  <div class="hero-kanji">漢</div>
+</section>
+
+<nav class="tabs">
+  <button class="tab active" data-page="home">🏠 Home</button>
+  <button class="tab" data-page="learn">📚 শেখা</button>
+  <button class="tab" data-page="quiz">🎯 Quiz</button>
+  <button class="tab" data-page="favorites">⭐ Favorites</button>
+  <button class="tab" data-page="progress">📊 Progress</button>
+</nav>
+
+<section id="home" class="page active">
+  <div class="section-head"><div><p class="eyebrow">আজকের লক্ষ্য</p><h2>কোথা থেকে শুরু করবে?</h2></div></div>
+  <div class="stats-grid">
+    <div class="stat"><span>📚</span><b id="totalStat">20</b><small>Kanji</small></div>
+    <div class="stat"><span>⭐</span><b id="favStat">0</b><small>Favorite</small></div>
+    <div class="stat"><span>✅</span><b id="learnedStat">0</b><small>শেখা হয়েছে</small></div>
+    <div class="stat"><span>🎯</span><b id="scoreStat">0%</b><small>Quiz accuracy</small></div>
+  </div>
+  <div class="cards">
+    <button class="feature" onclick="showPage('learn')"><strong>📖 Kanji শিখুন</strong><span>N5-এর প্রয়োজনীয় Kanji দিয়ে শুরু করুন</span>→</button>
+    <button class="feature" onclick="showPage('quiz')"><strong>🎯 Quiz দিন</strong><span>আপনি কতটা শিখেছেন পরীক্ষা করুন</span>→</button>
+    <button class="feature" onclick="showPage('progress')"><strong>📊 Progress দেখুন</strong><span>আপনার শেখার অগ্রগতি দেখুন</span>→</button>
+  </div>
+</section>
+
+<section id="learn" class="page">
+  <div class="section-head"><div><p class="eyebrow">N5 • 20টি sample Kanji</p><h2>Kanji Library</h2></div></div>
+  <div class="toolbar">
+    <input id="search" placeholder="🔍 Kanji, বাংলা অর্থ বা Japanese word খুঁজুন...">
+    <select id="filter"><option value="all">সব Kanji</option><option value="learned">শেখা হয়েছে</option><option value="new">এখনও শেখা হয়নি</option></select>
+  </div>
+  <div id="kanjiGrid" class="kanji-grid"></div>
+</section>
+
+<section id="detail" class="page">
+  <button class="back" onclick="showPage('learn')">← Library-তে ফিরে যান</button>
+  <div id="detailCard"></div>
+</section>
+
+<section id="quiz" class="page">
+  <div class="quiz-wrap">
+    <p class="eyebrow">নিজেকে পরীক্ষা করুন</p>
+    <h2>Kanji Quiz 🎯</h2>
+    <div id="quizBox"></div>
+  </div>
+</section>
+
+<section id="favorites" class="page">
+  <div class="section-head"><div><p class="eyebrow">তোমার পছন্দেরগুলো</p><h2>⭐ Favorites</h2></div></div>
+  <div id="favGrid" class="kanji-grid"></div>
+</section>
+
+<section id="progress" class="page">
+  <div class="section-head"><div><p class="eyebrow">তোমার অগ্রগতি</p><h2>📊 Progress</h2></div></div>
+  <div class="progress-card">
+    <div class="progress-ring"><span id="progressPct">0%</span></div>
+    <div><h3>N5 Kanji Progress</h3><p id="progressText">0 / 20 Kanji শেখা হয়েছে</p><div class="bar"><i id="progressBar"></i></div></div>
+  </div>
+  <button class="danger" onclick="resetProgress()">Progress Reset</button>
+</section>
+</main>
+
+<footer>Kanji Bangla • 日本語を楽しく勉強しましょう！</footer>
+<script src="script.js"></script>
+</body>
+</html>
